@@ -30,7 +30,7 @@ const STOP_MESSAGE = 'Goodbye!';
 //=========================================================================================================================================
 
 var recycleables = ["paper", "papers", "newspaper", "paper plate", "paper plates",
-    "plastic", "plastics", "plastic plate", "plastic plates", "cardboard",
+    "plastic", "plastics", "plastic plate", "plastic plates", "cardboard", 
     "broken down card board", "food box", "food boxes", "pizza box", "pizza boxes",
     "mail", "junk mail",
     "aluminum can", "aluminum cans",
@@ -52,7 +52,7 @@ const handlers = {
     },
     'RecyclableIntent': function () {
         //This is triggered when users say "Alexa, ask can this recycle if you can recycle paper"
-
+        
         var RecycleItem = this.event.request.intent.slots.RecyclableItem.value;
         if (recycleables.indexOf(RecycleItem) >= 0)
         {
@@ -60,28 +60,28 @@ const handlers = {
             if(RecycleItem == "plastic" || RecycleItem == "plastics")
             {
                 this.response.speak("YES, " + RecycleItem + " can be recycled in Tempe, but plastic that can wrap around your finger, " +
-                "such as plastic bags or wrappers, cannot be recycled.  This is known as soft plastic.  Plastic utensils, bubble wrap " +
+                "such as plastic bags or wrappers, cannot be recycled.  This is known as soft plastic.  Plastic utensils, bubble wrap " + 
                 "and beverage rings are also not allowed into your Tempe Municipal Recycling Container");
             }
-            else if (RecycleItem == "jug" || RecycleItem == "jugs" ||
-            RecycleItem == "milk jug" || RecycleItem == "milk jugs" ||
-            RecycleItem == "aluminum can" || RecycleItem == "aluminum cans" ||
-            RecycleItem == "beverage can" || RecycleItem == "beverage cans" ||
-            RecycleItem == "plastic bottle" || RecycleItem == "plastic bottles" )
+            else if (RecycleItem == "jug" || RecycleItem == "jugs" || 
+            RecycleItem == "milk jug" || RecycleItem == "milk jugs" || 
+            RecycleItem == "aluminum can" || RecycleItem == "aluminum cans" || 
+            RecycleItem == "beverage can" || RecycleItem == "beverage cans" || 
+            RecycleItem == "plastic bottle" || RecycleItem == "plastic bottles")
             {
                  this.response.speak("YES, " + RecycleItem + " can be recycled in Tempe, but all the liquid " +
-                "must be drained first.  If the " + RecycleItem + " previously contained a hazardous chemical, it " +
+                "must be drained first.  If the " + RecycleItem + " previously contained a hazardous chemical, it " + 
                 "cannot go in your Tempe Municipal Recycling Container.");
             }
-            else if (RecycleItem == "paper plate" || RecycleItem == "paper plates" ||
-            RecycleItem == "plastic plate" || RecycleItem == "plastic plates" ||
-            RecycleItem == "food box" || RecycleItem == "food boxes" ||
+            else if (RecycleItem == "paper plate" || RecycleItem == "paper plates" || 
+            RecycleItem == "plastic plate" || RecycleItem == "plastic plates" || 
+            RecycleItem == "food box" || RecycleItem == "food boxes" || 
             RecycleItem == "pizza box" || RecycleItem == "pizza boxes" )
             {
                  this.response.speak("YES, " + RecycleItem + " can be recycled in Tempe, but all food waste " +
                 "must be removed first.");
             }
-            else if (RecycleItem == "glass" || RecycleItem == "glass bottle" || RecycleItem == "glass bottles" ||
+            else if (RecycleItem == "glass" || RecycleItem == "glass bottle" || RecycleItem == "glass bottles" || 
             RecycleItem == "glass jar" || RecycleItem == "glass jars")
             {
                 this.response.speak("YES, " + RecycleItem + " can be recycled in Tempe, but stained " +
@@ -100,7 +100,7 @@ const handlers = {
             else if (RecycleItem == "christmas tree" || RecycleItem == "christmas trees")
             {
                 this.response.speak("YES, " + RecycleItem + " can be recycled in Tempe, but they can only be " +
-                "dropped off at the Compost Yard on North Rio Road Tempe or Kiwanis Park Recreation Center on " +
+                "dropped off at the Compost Yard on North Rio Road Tempe or Kiwanis Park Recreation Center on " + 
                 "December 26th through January 31st.");
             }
             this.emit(':responseReady');
@@ -110,19 +110,19 @@ const handlers = {
             this.response.speak("NO, " + RecycleItem + " will have to go to the landfill");
             this.emit(':responseReady');
         }
-
+        
 
     },
     'CollectionScheduleIntent': function () {
-        this.response.speak("Recycling is collected on Thursday north of Broadway Road, Monday north of " +
-        "Superstition Freeway, Friday north of Western Canal, and Tuesday any area south of that within Tempe " +
+        this.response.speak("Recycling is collected on Thursday north of Broadway Road, Monday north of " + 
+        "Superstition Freeway, Friday north of Western Canal, and Tuesday any area south of that within Tempe " + 
         "anytime between the hours of 6 a.m. and 8 p.m.");
         this.emit(':responseReady');
     },
-
+    
     'CompostIntent': function () {
-        this.response.speak("Tempe is the first city in the Valley to process its own compost and return " +
-        "it to the community.  Tempe residents can pick up or drop off compost 24/7 outside of Tempe's " +
+        this.response.speak("Tempe is the first city in the Valley to process its own compost and return " + 
+        "it to the community.  Tempe residents can pick up or drop off compost 24/7 outside of Tempe's " +  
         "compost yard located at 55 North Rio Road.  Please bring your own buckets and shovels.");
         this.emit(':responseReady');
     },
